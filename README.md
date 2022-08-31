@@ -3,7 +3,7 @@ Dataset with customers from a bank and their spending habits for clustering to d
 
 You can check all the info at: https://www.kaggle.com/datasets/arjunbhasin2013/ccdata
 
-For a better understanding with code + images I recommend the Google Collab visualization: https://colab.research.google.com/drive/1Nlb4JsCq_9B1BpxXEjBwvZxxJm0xi-ix?usp=sharing
+For a better understanding with code + images I recommend the Google Collab visualization: https://colab.research.google.com/drive/1ibBV8_cnVBSugEKJ5XRj_IZjqVfhGy3e?usp=sharing
 
 Preview:
 

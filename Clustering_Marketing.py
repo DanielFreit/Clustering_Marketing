@@ -13,7 +13,7 @@ from sklearn.decomposition import PCA
 base = pd.read_csv('Marketing_data.csv')
 df = pd.read_csv('Marketing_data.csv')
 
-# PRINT 1
+# CHECK PRINT 1
 
 #  todo EXPLORATION ------------------------
 
@@ -22,7 +22,7 @@ df = pd.read_csv('Marketing_data.csv')
 print(base.info())
 print(base.describe())
 
-# PRINT 1B
+# CHECK PRINT 1B
 
 '''We can check for frauds filtering the highest debits and cash payments in the dataset'''
 
@@ -32,14 +32,14 @@ high_cash = df[df['CASH_ADVANCE'] > 20000]
 print(high_deb)
 print(high_cash)
 
-# PRINT 2
+# CHECK PRINT 2
 
 '''Now we need to check Nan data, and duplicated data'''
 
 print(df.isnull().sum())
 print(df.duplicated().sum())
 
-# PRINT 3
+# CHECK PRINT 3
 
 '''Since we have some NaN data, let's fill it with the mean of the same columns so we don't have to delete
 info from the dataset, some infos in other parts of the dataset might be important, so we I opted to not drop
@@ -64,7 +64,7 @@ for i in range(len(df.columns)):
 plt.tight_layout()
 plt.show()
 
-# PRINT 4
+# CHECK PRINT 4
 
 '''And the correlation between the variables'''
 
@@ -76,7 +76,7 @@ plt.show()
 '''We can see that we have some interesting areas for correlation, for example, the amount of credit a person
 have, do not makes difference if he's paying or not, there's many insights we can explore if we need'''
 
-# PRINT 5
+# CHECK PRINT 5
 
 #  todo NORMALIZATION ------------------------
 
@@ -85,7 +85,7 @@ have, do not makes difference if he's paying or not, there's many insights we ca
 standardscaler = StandardScaler()
 df = standardscaler.fit_transform(df)
 
-# PRINT 6
+# CHECK PRINT 6
 
 #  todo DIMENSIONALITY REDUCTION ------------------------
 
@@ -115,7 +115,7 @@ print(df.shape)
 compact_df = encoder.predict(df)
 print(compact_df.shape)
 
-# PRINT 7
+# CHECK PRINT 7
 
 #  todo ELBOW TEST ------------------------
 
@@ -138,7 +138,7 @@ plt.show()
 '''Which we can observe and conclude that the optimal number of cluster would be around 4 (without the dimensionality
 we would be working with around 8 clusters, so we had an improvement'''
 
-# PRINT 8
+# CHECK PRINT 8
 
 #  todo MODEL CREATION ------------------------
 
@@ -155,7 +155,7 @@ df_clustered = pd.concat([base, pd.DataFrame({'cluster': labels})], axis=1)
 
 '''Now we have a dataset with the cluster each of the client belongs, which are correlated by many factors'''
 
-# PRINT 9
+# CHECK PRINT 9
 
 #  todo PCA ------------------------
 
@@ -174,7 +174,7 @@ plt.show()
 '''PCA in this case would create a 2D view of some 3D data, this way we can use it for dimensionality problems
 and for data visualization'''
 
-# PRINT 10
+# CHECK PRINT 10
 
 #  todo DATA ANALYSIS ------------------------
 
@@ -191,7 +191,7 @@ group3 = df_clustered[df_clustered['cluster'] == 3]
 
 print(group0.describe(), group1.describe(), group2.describe(), group3.describe())
 
-# PRINT 10b
+# CHECK PRINT 10b
 
 '''Let's plot some figures to compare each parameter od the clusters, this way we can check the differences about
 the clusters the autoencoder selected'''
@@ -207,7 +207,7 @@ for i in df_clustered.columns:
         plt.title(f'{i} \nCluster {j}')
     plt.show()
 
-# PRINT 11
+# CHECK PRINT 11
 
 '''Now we can compare group by group and have a better idea which one is grouped by how much they spend, or
 how much they earn, if there's a correlation, we'll be able to see, such as group 0, that have the best
